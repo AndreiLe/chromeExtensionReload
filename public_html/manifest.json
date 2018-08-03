@@ -1,0 +1,42 @@
+{
+  "icons": { "128": "icons/icon128.png" },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "page_action": {
+    "default_icon": {
+            "16": "icons/icon16.png",
+            "24": "icons/icon24.png",
+            "32": "icons/icon32.png"
+          },
+    "default_title": "Chrome extension reload"
+  },
+  "content_scripts": [{
+      "all_frames": false,
+      "js": [
+        "bin/index.js"
+      ],
+      "css": [
+        "bin/style.css"
+      ],
+      "matches": [
+        "*://localhost/*"
+      ],
+      "run_at": "document_start"
+    }],
+  "description": "Chrome extension reload",
+  "manifest_version": 2,
+  "name": "Chrome extension reload",
+  "permissions": [
+    "tabs",
+    "storage", 
+    "alarms", 
+    "http://*/*", 
+    "https://*/*", 
+    "declarativeContent", 
+    "unlimitedStorage"
+  ],
+  "version": "1.0.0",
+  "web_accessible_resources": ["assets/images/icon.png"]
+}
